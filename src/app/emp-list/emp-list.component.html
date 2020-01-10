@@ -1,0 +1,23 @@
+<app-gender-filter (childEvent) = "genderType=$event"></app-gender-filter>
+<div>
+    <table>
+        <thead>
+            <td>ID</td>
+            <td>NAME</td>
+            <td>GENDER</td>
+            <td>ANNUAL SALARY</td>
+            <td>DATE OF BIRTH</td>
+        </thead>
+        <tbody *ngFor='let employee of employees'>
+            <tr *ngIf = 'employee.gender.toLowerCase() === genderType.toLowerCase() || genderType === "all"'>
+                <td>{{employee.id | uppercase}}</td>
+                <td>{{employee.name | employeePipe : employee.gender}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.annualSalary}}</td>
+                <td>{{employee.dob}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{{gender}}
